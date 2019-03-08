@@ -1,0 +1,51 @@
+/* button,
+div,
+form,
+input {
+  margin: 10px;
+}
+
+
+
+/* .container {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: -10px;
+  width: 100%;
+}
+
+#gifs-view {
+  margin-top: 280px;
+} */ 
+
+img {
+      width: 100%;
+      height: 10vw;
+      object-fit: cover;
+  } 
+
+.card {
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.animal-btn {
+  /* margin-left: 5px; */
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+.jumbotron {
+  padding: 10px;
+  margin-bottom: 0;
+  /* position: sticky;   */
+}
+
+#form {
+  margin-bottom: 5px;  
+}
+
+#buttons-view {
+  margin-bottom: 10px;
+}
