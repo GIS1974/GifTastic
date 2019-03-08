@@ -18,17 +18,17 @@ function animalButtons() {
 //Function for adding an animal into array by clicking the button "Add an animal"
 $("#add-animal").on("click", function (event) {
     event.preventDefault();
-    // This line grabs the input from the textbox
+    // Grabbing the input from the textbox
     var animal = $("#animal-input").val().trim();
 
     if (animal === "") {
         alert("Name must be filled out");
     } else {
 
-        // Adding movie from the textbox to our array
+        // Adding animal from the textbox to the array
         animals.push(animal);
 
-        // Calling renderButtons which handles the processing of array
+        // Calling animalButtons which handles the processing of array
         animalButtons();
 
         // Form reset
@@ -38,19 +38,11 @@ $("#add-animal").on("click", function (event) {
 
 function displayGif() {
     var animalData = $(this).attr("data-animal");
-    // // key=27rWIQvNCwipOU3mCiW8xHTttB5Lk5SZ
-    // var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animalData + "&api_key=27rWIQvNCwipOU3mCiW8xHTttB5Lk5SZ&limit=10";
-    // // Creating an AJAX call for the specific movie button being clicked
-    // console.log(queryURL); ///////////////////////////////
-    // $.ajax({
-    //     url: queryURL,
-    //     method: "GET"
-    // }).then(function(response) {
 
-    var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + animalData + "&api_key=27rWIQvNCwipOU3mCiW8xHTttB5Lk5SZ&limit=12&rating=G&lang=en");
-    xhr.done(function (data) {
+    var getGif = $.get("https://api.giphy.com/v1/gifs/search?q=" + animalData + "&api_key=27rWIQvNCwipOU3mCiW8xHTttB5Lk5SZ&limit=12&rating=G&lang=en");
+    getGif.done(function (data) {
 
-        // Clearing the "#gifs-view" html element before putting here new gifs !!!!!!!!!!!!!!!!!!!!!!!1
+        // Clearing the "#gifs-view" html element before putting here new gifs 
         $("#gifs-view").empty();
 
         for (var i = 0; i < 12; i++) {
@@ -70,21 +62,7 @@ function displayGif() {
             // Storing the rating data
             var gifRating = data.data[i].rating;
 
-            // console.log(gifRating); ////////////////////////////////////
-
-            // Creating an element to have the rating displayed
-            // var ratingDisplay = $("<p>").text("Rating: " + gifRating);
-
-            // Displaying the rating
-            // gifDiv.append(ratingDisplay);
-
             gifCardHeader.text("Rating: " + gifRating);
-
-            // gifNumber = 10 - i;
-
-            // var gifNumberShow = $("<p>").text("Number: " + gifNumber);
-
-            // gifDiv.append(gifNumberShow);
 
             // Retrieving the URL for the image (still)
             var gifURL = data.data[i].images.fixed_height_still.url;
@@ -104,7 +82,7 @@ function displayGif() {
             // Adding data attribute "static" (still image url) to the image
             image.attr("data-static", "" + gifURL + "");
 
-            // Adding data attribute "dynamic" (still image url) to the image
+            // Adding data attribute "dynamic" (moving image url) to the image
             image.attr("data-dynamic", "" + gifDynamicURL + "");
 
             // Appending the image to the card body
@@ -147,16 +125,3 @@ $(document).on("click", ".animal-btn", displayGif);
 $(document).on("click", ".img-class", switchImage);
 
 animalButtons();
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=27rWIQvNCwipOU3mCiW8xHTttB5Lk5SZ&limit=10");
-xhr.done(function (data) {
-    var objectData = JSON.stringify(data);
-    // $("#gifs-view").text(objectData);
-    console.log(data);
-    // for (var i = 0; i < 10; i++) {
-    // console.log(data.data[i].rating);   
-    // console.log(data.data[i].images.original.url);
-    // }
-})

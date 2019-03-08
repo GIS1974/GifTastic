@@ -1,24 +1,3 @@
-/* button,
-div,
-form,
-input {
-  margin: 10px;
-}
-
-
-
-/* .container {
-  overflow: hidden;
-  background-color: white;
-  position: fixed;
-  top: -10px;
-  width: 100%;
-}
-
-#gifs-view {
-  margin-top: 280px;
-} */ 
-
 img {
       width: 100%;
       height: 10vw;
@@ -31,7 +10,6 @@ img {
 }
 
 .animal-btn {
-  /* margin-left: 5px; */
   margin-right: 10px;
   margin-top: 15px;
 }
@@ -39,7 +17,6 @@ img {
 .jumbotron {
   padding: 10px;
   margin-bottom: 0;
-  /* position: sticky;   */
 }
 
 #form {
